@@ -1,38 +1,35 @@
 #!/usr/bin/python3
-"""Calculate water retained."""
+"""
+0-rain
+"""
 
 
 def rain(walls):
-    total_water_retained = 0
-    start_index = None
-    end_index = None
-    limit = len(walls)
+    """
+    Calculate how many square units of water will be retained between walls.
 
-    i = 0
-    while i < limit:
-        next_wall_height = 0
-        if i + 1 < limit:
-            next_wall_height = walls[i + 1]
+    :param walls: A list of non-negative integers representing wall heights.
+    :type walls: List[int]
+    :return: Integer indicating the total amount of rainwater retained.
+    :rtype: int
+    """
+    if not walls or len(walls) < 3:
+        return 0
 
-        if start_index is not None and end_index is not None:
-            smallest_wall_height = min(walls[start_index], walls[end_index])
-            for wall_index in range(start_index + 1, end_index):
-                total_water_retained += smallest_wall_height - walls[wall_index]
-            start_index = None
-            end_index = None
+    n = len(walls)
+    left_max = [0] * n
+    right_max = [0] * n
+    water_trapped = 0
 
-        if start_index is None and walls[i] > 0:
-            start_index = i
-            i += 1
-            continue
+    left_max[0] = walls[0]
+    for i in range(1, n):
+        left_max[i] = max(left_max[i - 1], walls[i])
 
-        if (start_index is not None and walls[i] > walls[i - 1] and
-                walls[i] >= next_wall_height):
-            end_index = i
-            continue
+    right_max[n - 1] = walls[n - 1]
+    for i in range(n - 2, -1, -1):
+        right_max[i] = max(right_max[i + 1], walls[i])
 
-        i += 1
+    for i in range(n):
+        water_trapped += min(left_max[i], right_max[i]) - walls[i]
 
-    return total_water_retained
-
-
+    return water_trapped
