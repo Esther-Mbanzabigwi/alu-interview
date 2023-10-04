@@ -26,10 +26,12 @@ def rain(walls):
             i += 1
             continue
 
-        if start_index is not None and walls[i] > walls[i - 1] and walls[i] >= next_wall_height:
+        if (start_index is not None and walls[i] > walls[i - 1] and
+                walls[i] >= next_wall_height):
             end_index = i
             continue
 
         i += 1
 
     return total_water_retained
+
