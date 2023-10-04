@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""calculate water retained"""
+"""Calculate water retained."""
 
 
 def rain(walls):
@@ -34,4 +34,5 @@ def rain(walls):
         i += 1
 
     return total_water_retained
+
 
