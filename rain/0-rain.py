@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 def rain(walls):
     total_water_retained = 0
     start_index = None
