@@ -1,5 +1,3 @@
-lculate water retained"""
-
 
 def rain(walls):
     total_water_retained = 0
