@@ -31,5 +31,4 @@ def rain(walls):
             continue
 
         i += 1
-
     return total_water_retained
