@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+"""calculate water retained"""
 
-def calculate_water_retained(walls):
-    """Calculate the amount of water retained between walls."""
 
+def rain(walls):
     total_water_retained = 0
     start_index = None
     end_index = None
@@ -33,4 +33,3 @@ def calculate_water_retained(walls):
         i += 1
 
     return total_water_retained
-
