@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+
+""""calculate water retained"""
+
 def rain(walls):
     total_water_retained = 0
     start_index = None
